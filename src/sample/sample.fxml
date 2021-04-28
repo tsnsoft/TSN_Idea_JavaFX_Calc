@@ -19,7 +19,7 @@
         <Label fx:id="label_a" layoutX="22.0" layoutY="27.0" text="A ="/>
         <Label fx:id="label_b" layoutX="22.0" layoutY="71.0" text="B ="/>
         <Label fx:id="label_x" layoutX="22.0" layoutY="115.0" text="X ="/>
-        <Label fx:id="label_otvet" layoutX="11.0" layoutY="254.0" prefHeight="18.0" prefWidth="614.0" text="Ответ:"/>
+        <Label fx:id="label_answer" layoutX="11.0" layoutY="254.0" prefHeight="18.0" prefWidth="614.0" text="Ответ:"/>
         <TextField fx:id="textField_A" layoutX="54.0" layoutY="23.0" prefHeight="26.0" prefWidth="150.0"/>
         <TextField fx:id="textField_B" layoutX="54.0" layoutY="67.0" prefHeight="26.0" prefWidth="150.0"/>
         <TextField fx:id="textField_X" layoutX="54.0" layoutY="111.0" prefHeight="26.0" prefWidth="150.0"/>

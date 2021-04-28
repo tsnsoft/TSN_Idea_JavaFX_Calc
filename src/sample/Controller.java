@@ -1,31 +1,19 @@
 package sample;
 
-import java.awt.Component;
-import java.awt.Toolkit;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
     @FXML
-    private Button button_Math;
-    @FXML
-    private Label label_a;
-    @FXML
-    private Label label_b;
-    @FXML
-    private Label label_x;
-    @FXML
-    private Label label_otvet;
+    private Label label_answer;
     @FXML
     private TextField textField_A;
     @FXML
@@ -33,20 +21,14 @@ public class Controller implements Initializable {
     @FXML
     private TextField textField_X;
     @FXML
-    private Label label_d;
-    @FXML
     private TextField textField_D;
-    @FXML
-    private Button button_Clear;
-    @FXML
-    private Button button_Exit;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
 
     @FXML
-    private void buttonMathAction(ActionEvent event) {
+    private void buttonMathAction() {
         double a, b, x, d, y;
         try {
             a = Double.parseDouble(textField_A.getText());
@@ -55,33 +37,31 @@ public class Controller implements Initializable {
             d = Double.parseDouble(textField_D.getText());
         } catch (Exception ex) {
             Toolkit.getDefaultToolkit().beep();
-            Component rootPane = null;
-            JOptionPane.showMessageDialog(rootPane, "Ошибка введенных данных!", "Ошибка ввода",
-                JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ошибка введенных данных!",
+                "Ошибка ввода", JOptionPane.ERROR_MESSAGE);
             textField_A.requestFocus();
-            label_otvet.setText("В введенных значениях допущены ошибки");
+            label_answer.setText("В введенных значениях допущены ошибки");
             textField_A.setText("");
             textField_B.setText("");
             textField_X.setText("");
+            textField_D.setText("");
             return;
         }
         if (x < 6) {
             y = (((a + b) * (a + b)) / (x - 2));
-            //label_otvet.setText("Ответ: " + String.format("%.2f",y));
         } else {
             y = ((x * (d * d * d)) + (b * b));
-            //label_otvet.setText("Ответ: " + String.format("%.2f",y));
         }
         if (!(Double.isNaN(y)) && (!Double.isInfinite(y))) {
-            label_otvet.setText("Ответ: " + String.format("%.2f", y));
+            label_answer.setText("Ответ: " + String.format("%.2f", y));
         } else {
-            label_otvet.setText("Нет ответа");
+            label_answer.setText("Нет ответа");
         }
     }
 
     @FXML
-    private void buttonClearAction(ActionEvent event) {
-        label_otvet.setText("Ответ: ");
+    private void buttonClearAction() {
+        label_answer.setText("Ответ: ");
         textField_A.setText("");
         textField_B.setText("");
         textField_X.setText("");
@@ -89,7 +69,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void buttonExitAction(ActionEvent event) {
+    private void buttonExitAction() {
         System.exit(0);
     }
 
