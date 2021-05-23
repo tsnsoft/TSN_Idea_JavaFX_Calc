@@ -1,0 +1,1 @@
+java --module-path /snap/openjfx/current/sdk/lib --add-modules javafx.controls,javafx.fxml -Djava.library.path=/snap/openjfx/current/sdk/lib -jar JavaFxApplication.jar
